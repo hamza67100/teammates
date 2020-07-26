@@ -32,7 +32,7 @@ export class StudentCourseDetailsPageComponent implements OnInit {
   // enum
   Gender: typeof Gender = Gender;
   SortBy: typeof SortBy = SortBy;
-  teammateProfilesSortBy: SortBy = SortBy.STUDENT_NAME;
+  teammateProfilesSortBy: SortBy = SortBy.RESPONDENT_NAME;
   // data
   student: Student = {
     email: '',
@@ -193,23 +193,13 @@ export class StudentCourseDetailsPageComponent implements OnInit {
       let strA: string;
       let strB: string;
       switch (sortOption) {
-<<<<<<< HEAD
-        case SortBy.STUDENT_NAME:
+        case SortBy.RESPONDENT_NAME:
           strA = a.studentProfile.shortName;
           strB = b.studentProfile.shortName;
           break;
-        case SortBy.EMAIL:
+        case SortBy.RESPONDENT_EMAIL:
           strA = a.studentProfile.email;
           strB = b.studentProfile.email;
-=======
-        case SortBy.RESPONDENT_NAME:
-          strA = a.name;
-          strB = b.name;
-          break;
-        case SortBy.RESPONDENT_EMAIL:
-          strA = a.email;
-          strB = b.email;
->>>>>>> 11c847d5fbc81818f7586158d33e3733755ea755
           break;
         case SortBy.STUDENT_GENDER:
           strA = a.studentProfile.gender;

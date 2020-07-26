@@ -120,23 +120,6 @@
 
 <div class="card bg-light mb-4">
   <div class="card-body">
-<<<<<<< HEAD
-    <div class = "searchBar">
-    <h5 class="d-inline"><strong> Search: </strong></h5>
-      <input type="text" #inputValue name="inputValue" 
-      placeholder="e.g. Tom Davis, tom@gmail.com" size="50" />
-      <button class="btn btn-light" (click)="searchTeammateProfiles(inputValue.value)">Search</button>
-    </div>
-    <div class = "sortby">
-      <h5 class="d-inline"><strong> Sort By: </strong></h5>
-      <div class="btn-group" data-toggle="buttons">
-        <button class="btn btn-light" [disabled]="isSelectedForSorting(SortBy.STUDENT_NAME)" (click)="sortTeammatesBy(SortBy.STUDENT_NAME)">Name</button>
-        <button class="btn btn-light" [disabled]="isSelectedForSorting(SortBy.EMAIL)" (click)="sortTeammatesBy(SortBy.EMAIL)">Email</button>
-        <button class="btn btn-light" [disabled]="isSelectedForSorting(SortBy.STUDENT_GENDER)" (click)="sortTeammatesBy(SortBy.STUDENT_GENDER)">Gender</button>
-        <button class="btn btn-light" [disabled]="isSelectedForSorting(SortBy.INSTITUTION)" (click)="sortTeammatesBy(SortBy.INSTITUTION)">Institution</button>
-        <button class="btn btn-light" [disabled]="isSelectedForSorting(SortBy.NATIONALITY)" (click)="sortTeammatesBy(SortBy.NATIONALITY)">Nationality</button>
-      </div>
-=======
     <h5 class="d-inline"><strong> Sort By: </strong></h5>
     <div class="btn-group" data-toggle="buttons">
       <button id="sort-name" class="btn btn-light" [disabled]="isSelectedForSorting(SortBy.RESPONDENT_NAME)" (click)="sortTeammatesBy(SortBy.RESPONDENT_NAME)">Name</button>
@@ -144,7 +127,6 @@
       <button class="btn btn-light" [disabled]="isSelectedForSorting(SortBy.STUDENT_GENDER)" (click)="sortTeammatesBy(SortBy.STUDENT_GENDER)">Gender</button>
       <button class="btn btn-light" [disabled]="isSelectedForSorting(SortBy.INSTITUTION)" (click)="sortTeammatesBy(SortBy.INSTITUTION)">Institution</button>
       <button class="btn btn-light" [disabled]="isSelectedForSorting(SortBy.NATIONALITY)" (click)="sortTeammatesBy(SortBy.NATIONALITY)">Nationality</button>
->>>>>>> 11c847d5fbc81818f7586158d33e3733755ea755
     </div>
   </div>
 </div>

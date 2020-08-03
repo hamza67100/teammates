@@ -53,6 +53,7 @@ export class StudentCourseDetailsPageComponent implements OnInit {
     deletionTimestamp: 0,
   };
 
+  courseId: string = '';
   instructorDetails: Instructor[] = [];
   teammateProfiles: StudentProfileWithPicture[] = [];
   teammateProfilesInit: StudentProfileWithPicture[] = [];
@@ -61,6 +62,7 @@ export class StudentCourseDetailsPageComponent implements OnInit {
   isLoadingStudent: boolean = false;
   isLoadingInstructor: boolean = false;
   isLoadingTeammates: boolean = false;
+  hasLoadingFailed: boolean = false;
 
   constructor(private tableComparatorService: TableComparatorService,
               private route: ActivatedRoute,
@@ -75,6 +77,7 @@ export class StudentCourseDetailsPageComponent implements OnInit {
    */
   ngOnInit(): void {
     this.route.queryParams.subscribe((queryParams: any) => {
+      this.courseId = queryParams.courseid;
       this.loadStudent(queryParams.courseid);
       this.loadCourse(queryParams.courseid);
       this.loadInstructors(queryParams.courseid);
@@ -86,9 +89,15 @@ export class StudentCourseDetailsPageComponent implements OnInit {
    * @param courseid: id of the course queried
    */
   loadCourse(courseId: string): void {
-    this.courseService.getCourseAsStudent(courseId).subscribe((course: Course) => {
-      this.course = course;
-    });
+    this.isLoadingCourse = true;
+    this.courseService.getCourseAsStudent(courseId)
+        .pipe(finalize(() => this.isLoadingCourse = false))
+        .subscribe((course: Course) => {
+          this.course = course;
+        }, (resp: ErrorMessageOutput) => {
+          this.hasLoadingFailed = true;
+          this.statusMessageService.showErrorToast(resp.error.message);
+        });
   }
 
   /**
@@ -101,6 +110,7 @@ export class StudentCourseDetailsPageComponent implements OnInit {
           this.student = student;
           this.loadTeammates(courseId, student.teamName);
         }, (resp: ErrorMessageOutput) => {
+          this.hasLoadingFailed = true;
           this.statusMessageService.showErrorToast(resp.error.message);
         });
   }
@@ -111,6 +121,8 @@ export class StudentCourseDetailsPageComponent implements OnInit {
    * @param teamName: team of current student
    */
   loadTeammates(courseId: string, teamName: string): void {
+    this.isLoadingTeammates = true;
+    this.teammateProfiles = [];
     this.studentService.getStudentsFromCourseAndTeam(courseId, teamName)
       .subscribe((students: Students) => {
         students.students.forEach((student: Student) => {
@@ -120,25 +132,28 @@ export class StudentCourseDetailsPageComponent implements OnInit {
           }
 
           this.studentProfileService.getStudentProfile(student.email, courseId)
-            .subscribe((studentProfile: StudentProfile) => {
-              const newPhotoUrl: string =
-                `${environment.backendUrl}/webapi/student/profilePic`
-                + `?courseid=${courseId}&studentemail=${student.email}`;
+                .pipe(finalize(() => this.isLoadingTeammates = false))
+                .subscribe((studentProfile: StudentProfile) => {
+                  const newPhotoUrl: string =
+                    `${environment.backendUrl}/webapi/student/profilePic`
+                    + `?courseid=${courseId}&studentemail=${student.email}`;
 
-              const newTeammateProfile: StudentProfileWithPicture = {
-                studentProfile: {
-                  ...studentProfile,
-                  email: student.email,
-                  shortName: student.name,
-                },
-                photoUrl: newPhotoUrl,
-              };
+                  const newTeammateProfile: StudentProfileWithPicture = {
+                    ...studentProfile,
+                    email: student.email,
+                    name: student.name,
+                    photoUrl : newPhotoUrl,
+                  };
 
-              this.teammateProfiles.push(newTeammateProfile);
-              this.teammateProfilesInit.push(newTeammateProfile);
-            });
+                  this.teammateProfiles.push(newTeammateProfile);
+                }, (resp: ErrorMessageOutput) => {
+                  this.hasLoadingFailed = true;
+                  this.statusMessageService.showErrorToast(resp.error.message);
+                });
         });
       }, (resp: ErrorMessageOutput) => {
+        this.isLoadingTeammates = false;
+        this.hasLoadingFailed = true;
         this.statusMessageService.showErrorToast(resp.error.message);
       });   
   }
@@ -152,6 +167,7 @@ export class StudentCourseDetailsPageComponent implements OnInit {
         .subscribe((instructors: Instructors) => {
           this.instructorDetails = instructors.instructors;
         }, (resp: ErrorMessageOutput) => {
+          this.hasLoadingFailed = true;
           this.statusMessageService.showErrorToast(resp.error.message);
         });
   }
@@ -221,23 +237,10 @@ export class StudentCourseDetailsPageComponent implements OnInit {
     });
   }
 
-  /**
-   * Search Profiles if the value of the search bar is included
-   * in the name or the email of the profile
-   */
-  searchTeammateProfiles(inputValue: string): void {
-    if (!inputValue) {
-      this.teammateProfiles = this.teammateProfilesInit;
-    }
-    else {
-      this.teammateProfiles = [];
-      this.teammateProfilesInit.forEach(student => {
-        if (student.studentProfile.name.toLocaleLowerCase().includes(inputValue.toLocaleLowerCase()) ||
-          student.studentProfile.email.toLocaleLowerCase().includes(inputValue.toLocaleLowerCase())) {
-          this.teammateProfiles.push(student);
-        }
-      });
-    }
+  retryLoading(): void {
+    this.hasLoadingFailed = false;
+    this.loadCourse(this.courseId);
+    this.loadInstructors(this.courseId);
+    this.loadStudent(this.courseId);
   }
-
 }

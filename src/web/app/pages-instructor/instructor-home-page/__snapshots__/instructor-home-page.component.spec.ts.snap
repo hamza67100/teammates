@@ -29,7 +29,7 @@ exports[`InstructorHomePageComponent should snap when courses are still loading 
   </tm-redirect-banner><h1>
     Home
   </h1><div
-    class="card bg-light mb-4"
+    class="card no-border bg-light mb-4"
   >
     <div
       class="card-body"
@@ -124,7 +124,7 @@ exports[`InstructorHomePageComponent should snap with default fields 1`] = `
   </tm-redirect-banner><h1>
     Home
   </h1><div
-    class="card bg-light mb-4"
+    class="card no-border bg-light mb-4"
   >
     <div
       class="card-body"
@@ -219,7 +219,7 @@ exports[`InstructorHomePageComponent should snap with one course with error load
   </tm-redirect-banner><h1>
     Home
   </h1><div
-    class="card bg-light mb-4"
+    class="card no-border bg-light mb-4"
   >
     <div
       class="card-body"
@@ -258,7 +258,10 @@ exports[`InstructorHomePageComponent should snap with one course with error load
         href="/web/instructor/courses?isAddNewCourse=true"
         routerlink="/web/instructor/courses"
       >
-        Add New Course
+        <i
+          class="fas fa-plus"
+        />
+         Add New Course 
       </a>
     </div>
     
@@ -392,7 +395,7 @@ exports[`InstructorHomePageComponent should snap with one course with one feedba
   </tm-redirect-banner><h1>
     Home
   </h1><div
-    class="card bg-light mb-4"
+    class="card no-border bg-light mb-4"
   >
     <div
       class="card-body"
@@ -431,7 +434,10 @@ exports[`InstructorHomePageComponent should snap with one course with one feedba
         href="/web/instructor/courses?isAddNewCourse=true"
         routerlink="/web/instructor/courses"
       >
-        Add New Course
+        <i
+          class="fas fa-plus"
+        />
+         Add New Course 
       </a>
     </div>
     
@@ -496,7 +502,7 @@ exports[`InstructorHomePageComponent should snap with one course with one feedba
                 <button
                   aria-expanded="false"
                   aria-haspopup="true"
-                  class="btn btn-light btn-sm dropdown-toggle"
+                  class="btn btn-primary btn-sm dropdown-toggle"
                   ngbdropdowntoggle=""
                 >
                    Students 
@@ -531,7 +537,7 @@ exports[`InstructorHomePageComponent should snap with one course with one feedba
                 <button
                   aria-expanded="false"
                   aria-haspopup="true"
-                  class="btn btn-light btn-sm dropdown-toggle"
+                  class="btn btn-primary btn-sm dropdown-toggle"
                   ngbdropdowntoggle=""
                 >
                    Instructors 
@@ -557,7 +563,7 @@ exports[`InstructorHomePageComponent should snap with one course with one feedba
                 <button
                   aria-expanded="false"
                   aria-haspopup="true"
-                  class="btn btn-light btn-sm dropdown-toggle"
+                  class="btn btn-primary btn-sm dropdown-toggle"
                   ngbdropdowntoggle=""
                 >
                    Sessions 
@@ -583,7 +589,7 @@ exports[`InstructorHomePageComponent should snap with one course with one feedba
                 <button
                   aria-expanded="false"
                   aria-haspopup="true"
-                  class="btn btn-light btn-sm dropdown-toggle"
+                  class="btn btn-primary btn-sm dropdown-toggle"
                   ngbdropdowntoggle=""
                 >
                    Course 
@@ -705,6 +711,7 @@ exports[`InstructorHomePageComponent should snap with one course with one feedba
                             Responses
                           </th>
                           <th
+                            class="ngb-tooltip-class"
                             container="body"
                             ngbtooltip="Number of students submitted / Class size"
                           >
@@ -728,23 +735,31 @@ exports[`InstructorHomePageComponent should snap with one course with one feedba
                           </td>
                           
                           <td>
-                            <span>
+                            <span
+                              class="ngb-tooltip-class"
+                            >
                               19 Jan 6:43 AM
                             </span>
                           </td>
                           
                           <td>
-                            <span>
+                            <span
+                              class="ngb-tooltip-class"
+                            >
                               19 Jan 6:46 AM
                             </span>
                           </td>
                           <td>
-                            <span>
+                            <span
+                              class="ngb-tooltip-class"
+                            >
                               Awaiting
                             </span>
                           </td>
                           <td>
-                            <span>
+                            <span
+                              class="ngb-tooltip-class"
+                            >
                               Not Published
                             </span>
                           </td>
@@ -903,7 +918,7 @@ exports[`InstructorHomePageComponent should snap with one course with two feedba
   </tm-redirect-banner><h1>
     Home
   </h1><div
-    class="card bg-light mb-4"
+    class="card no-border bg-light mb-4"
   >
     <div
       class="card-body"
@@ -942,7 +957,10 @@ exports[`InstructorHomePageComponent should snap with one course with two feedba
         href="/web/instructor/courses?isAddNewCourse=true"
         routerlink="/web/instructor/courses"
       >
-        Add New Course
+        <i
+          class="fas fa-plus"
+        />
+         Add New Course 
       </a>
     </div>
     
@@ -1007,7 +1025,7 @@ exports[`InstructorHomePageComponent should snap with one course with two feedba
                 <button
                   aria-expanded="false"
                   aria-haspopup="true"
-                  class="btn btn-light btn-sm dropdown-toggle"
+                  class="btn btn-primary btn-sm dropdown-toggle"
                   ngbdropdowntoggle=""
                 >
                    Students 
@@ -1034,7 +1052,7 @@ exports[`InstructorHomePageComponent should snap with one course with two feedba
                 <button
                   aria-expanded="false"
                   aria-haspopup="true"
-                  class="btn btn-light btn-sm dropdown-toggle"
+                  class="btn btn-primary btn-sm dropdown-toggle"
                   ngbdropdowntoggle=""
                 >
                    Instructors 
@@ -1060,7 +1078,7 @@ exports[`InstructorHomePageComponent should snap with one course with two feedba
                 <button
                   aria-expanded="false"
                   aria-haspopup="true"
-                  class="btn btn-light btn-sm dropdown-toggle"
+                  class="btn btn-primary btn-sm dropdown-toggle"
                   ngbdropdowntoggle=""
                 >
                    Sessions 
@@ -1086,7 +1104,7 @@ exports[`InstructorHomePageComponent should snap with one course with two feedba
                 <button
                   aria-expanded="false"
                   aria-haspopup="true"
-                  class="btn btn-light btn-sm dropdown-toggle"
+                  class="btn btn-primary btn-sm dropdown-toggle"
                   ngbdropdowntoggle=""
                 >
                    Course 
@@ -1200,6 +1218,7 @@ exports[`InstructorHomePageComponent should snap with one course with two feedba
                             Responses
                           </th>
                           <th
+                            class="ngb-tooltip-class"
                             container="body"
                             ngbtooltip="Number of students submitted / Class size"
                           >
@@ -1223,23 +1242,31 @@ exports[`InstructorHomePageComponent should snap with one course with two feedba
                           </td>
                           
                           <td>
-                            <span>
+                            <span
+                              class="ngb-tooltip-class"
+                            >
                               1 Jan 7:30 AM
                             </span>
                           </td>
                           
                           <td>
-                            <span>
+                            <span
+                              class="ngb-tooltip-class"
+                            >
                               1 Jan 7:30 AM
                             </span>
                           </td>
                           <td>
-                            <span>
+                            <span
+                              class="ngb-tooltip-class"
+                            >
                               Closed
                             </span>
                           </td>
                           <td>
-                            <span>
+                            <span
+                              class="ngb-tooltip-class"
+                            >
                               Published
                             </span>
                           </td>
@@ -1358,23 +1385,31 @@ exports[`InstructorHomePageComponent should snap with one course with two feedba
                           </td>
                           
                           <td>
-                            <span>
+                            <span
+                              class="ngb-tooltip-class"
+                            >
                               1 Jan 7:30 AM
                             </span>
                           </td>
                           
                           <td>
-                            <span>
+                            <span
+                              class="ngb-tooltip-class"
+                            >
                               1 Jan 7:30 AM
                             </span>
                           </td>
                           <td>
-                            <span>
+                            <span
+                              class="ngb-tooltip-class"
+                            >
                               Open
                             </span>
                           </td>
                           <td>
-                            <span>
+                            <span
+                              class="ngb-tooltip-class"
+                            >
                               Not Published
                             </span>
                           </td>
@@ -1529,7 +1564,7 @@ exports[`InstructorHomePageComponent should snap with one course with unexpanded
   </tm-redirect-banner><h1>
     Home
   </h1><div
-    class="card bg-light mb-4"
+    class="card no-border bg-light mb-4"
   >
     <div
       class="card-body"
@@ -1568,7 +1603,10 @@ exports[`InstructorHomePageComponent should snap with one course with unexpanded
         href="/web/instructor/courses?isAddNewCourse=true"
         routerlink="/web/instructor/courses"
       >
-        Add New Course
+        <i
+          class="fas fa-plus"
+        />
+         Add New Course 
       </a>
     </div>
     
@@ -1633,7 +1671,7 @@ exports[`InstructorHomePageComponent should snap with one course with unexpanded
                 <button
                   aria-expanded="false"
                   aria-haspopup="true"
-                  class="btn btn-light btn-sm dropdown-toggle"
+                  class="btn btn-primary btn-sm dropdown-toggle"
                   ngbdropdowntoggle=""
                 >
                    Students 
@@ -1668,7 +1706,7 @@ exports[`InstructorHomePageComponent should snap with one course with unexpanded
                 <button
                   aria-expanded="false"
                   aria-haspopup="true"
-                  class="btn btn-light btn-sm dropdown-toggle"
+                  class="btn btn-primary btn-sm dropdown-toggle"
                   ngbdropdowntoggle=""
                 >
                    Instructors 
@@ -1694,7 +1732,7 @@ exports[`InstructorHomePageComponent should snap with one course with unexpanded
                 <button
                   aria-expanded="false"
                   aria-haspopup="true"
-                  class="btn btn-light btn-sm dropdown-toggle"
+                  class="btn btn-primary btn-sm dropdown-toggle"
                   ngbdropdowntoggle=""
                 >
                    Sessions 
@@ -1720,7 +1758,7 @@ exports[`InstructorHomePageComponent should snap with one course with unexpanded
                 <button
                   aria-expanded="false"
                   aria-haspopup="true"
-                  class="btn btn-light btn-sm dropdown-toggle"
+                  class="btn btn-primary btn-sm dropdown-toggle"
                   ngbdropdowntoggle=""
                 >
                    Course 
@@ -1806,7 +1844,7 @@ exports[`InstructorHomePageComponent should snap with one course with unpopulate
   </tm-redirect-banner><h1>
     Home
   </h1><div
-    class="card bg-light mb-4"
+    class="card no-border bg-light mb-4"
   >
     <div
       class="card-body"
@@ -1845,7 +1883,10 @@ exports[`InstructorHomePageComponent should snap with one course with unpopulate
         href="/web/instructor/courses?isAddNewCourse=true"
         routerlink="/web/instructor/courses"
       >
-        Add New Course
+        <i
+          class="fas fa-plus"
+        />
+         Add New Course 
       </a>
     </div>
     
@@ -1910,7 +1951,7 @@ exports[`InstructorHomePageComponent should snap with one course with unpopulate
                 <button
                   aria-expanded="false"
                   aria-haspopup="true"
-                  class="btn btn-light btn-sm dropdown-toggle"
+                  class="btn btn-primary btn-sm dropdown-toggle"
                   ngbdropdowntoggle=""
                 >
                    Students 
@@ -1945,7 +1986,7 @@ exports[`InstructorHomePageComponent should snap with one course with unpopulate
                 <button
                   aria-expanded="false"
                   aria-haspopup="true"
-                  class="btn btn-light btn-sm dropdown-toggle"
+                  class="btn btn-primary btn-sm dropdown-toggle"
                   ngbdropdowntoggle=""
                 >
                    Instructors 
@@ -1971,7 +2012,7 @@ exports[`InstructorHomePageComponent should snap with one course with unpopulate
                 <button
                   aria-expanded="false"
                   aria-haspopup="true"
-                  class="btn btn-light btn-sm dropdown-toggle"
+                  class="btn btn-primary btn-sm dropdown-toggle"
                   ngbdropdowntoggle=""
                 >
                    Sessions 
@@ -1997,7 +2038,7 @@ exports[`InstructorHomePageComponent should snap with one course with unpopulate
                 <button
                   aria-expanded="false"
                   aria-haspopup="true"
-                  class="btn btn-light btn-sm dropdown-toggle"
+                  class="btn btn-primary btn-sm dropdown-toggle"
                   ngbdropdowntoggle=""
                 >
                    Course 
@@ -2111,7 +2152,7 @@ exports[`InstructorHomePageComponent should snap with one course without feedbac
   </tm-redirect-banner><h1>
     Home
   </h1><div
-    class="card bg-light mb-4"
+    class="card no-border bg-light mb-4"
   >
     <div
       class="card-body"
@@ -2150,7 +2191,10 @@ exports[`InstructorHomePageComponent should snap with one course without feedbac
         href="/web/instructor/courses?isAddNewCourse=true"
         routerlink="/web/instructor/courses"
       >
-        Add New Course
+        <i
+          class="fas fa-plus"
+        />
+         Add New Course 
       </a>
     </div>
     
@@ -2215,7 +2259,7 @@ exports[`InstructorHomePageComponent should snap with one course without feedbac
                 <button
                   aria-expanded="false"
                   aria-haspopup="true"
-                  class="btn btn-light btn-sm dropdown-toggle"
+                  class="btn btn-primary btn-sm dropdown-toggle"
                   ngbdropdowntoggle=""
                 >
                    Students 
@@ -2250,7 +2294,7 @@ exports[`InstructorHomePageComponent should snap with one course without feedbac
                 <button
                   aria-expanded="false"
                   aria-haspopup="true"
-                  class="btn btn-light btn-sm dropdown-toggle"
+                  class="btn btn-primary btn-sm dropdown-toggle"
                   ngbdropdowntoggle=""
                 >
                    Instructors 
@@ -2276,7 +2320,7 @@ exports[`InstructorHomePageComponent should snap with one course without feedbac
                 <button
                   aria-expanded="false"
                   aria-haspopup="true"
-                  class="btn btn-light btn-sm dropdown-toggle"
+                  class="btn btn-primary btn-sm dropdown-toggle"
                   ngbdropdowntoggle=""
                 >
                    Sessions 
@@ -2302,7 +2346,7 @@ exports[`InstructorHomePageComponent should snap with one course without feedbac
                 <button
                   aria-expanded="false"
                   aria-haspopup="true"
-                  class="btn btn-light btn-sm dropdown-toggle"
+                  class="btn btn-primary btn-sm dropdown-toggle"
                   ngbdropdowntoggle=""
                 >
                    Course 

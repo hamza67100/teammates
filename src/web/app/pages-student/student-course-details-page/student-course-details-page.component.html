@@ -85,56 +85,38 @@
   </div>
 </tm-loading-retry>
 
-<div class="section" *ngIf="teammateProfiles.length">
-  <div class="col-sm-12">
-    <h4 class="font-weight-bold">Team Profiles</h4>
-  </div>
-  <div class="row" *ngFor="let teammateProfile of teammateProfiles">
-    <div class="col-12">
-      <div class="row">
-        <div class="col-md-2 col-3">
-          <img src="{{teammateProfile.photoUrl}}"
-               class="profile-pic float-left" (error)="setDefaultPic(teammateProfile)">
-        </div>
-        <div class="col-md-10 col-9">
-          <table class="table table-striped">
-            <tbody>
-            <tr>
-              <td class="font-weight-bold">Name</td>
-              <td>
-                <span>
-                  {{teammateProfile.studentProfile.shortName}}
-                </span>
-              </td>
-            </tr>
-            <tr>
-              <td class="font-weight-bold">Email</td>
-              <td>
-                <a href="mailto:{{teammateProfile.studentProfile.email}}">{{teammateProfile.studentProfile.email}}</a>
-              </td>
-            </tr>
-            <tr>
-              <td class="font-weight-bold">Gender</td>
-              <td>
-                <span>{{teammateProfile.studentProfile.gender}}</span>
-              </td>
-            </tr>
-            <tr>
-              <td class="font-weight-bold">Institution</td>
-              <td>
-                <span>{{teammateProfile.studentProfile.institute}}</span>
-              </td>
-            </tr>
-            <tr>
-              <td class="font-weight-bold">Nationality</td>
-              <td>
-                <span>{{teammateProfile.studentProfile.nationality}}</span>
-              </td>
-            </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
+<div class="section">
+  <div class="row top-padded">
+    <div class="col-md-2" *ngIf="teammateProfiles.length">
+      <strong>Your teammates:</strong>
+    </div>
+    <div class="col-md-10" *tmIsLoading="isLoadingTeammates">
+      <table>
+        <tbody>
+        <tr *ngFor="let teammateProfile of teammateProfiles; let i = index">
+          <td class="team-member-photo-cell">
+            <img src="{{ teammateProfile.photoUrl }}" class="profile-pic" (error)="setDefaultPic(teammateProfile)">
+          </td>
+          <td class="team-member-profile-cell" id="teammates-details-{{ i }}">
+            <div>
+              <label>Name:</label> {{ teammateProfile.name }}
+            </div>
+            <div>
+              <label>Email:</label>&nbsp;<a href="mailto:{{ teammateProfile.email }}">{{ teammateProfile.email }}</a>
+            </div>
+            <div *ngIf="teammateProfile.gender">
+              <label>Gender:</label> {{ teammateProfile.gender | genderFormat }}
+            </div>
+            <div *ngIf="teammateProfile.nationality">
+              <label>Nationality:</label> {{ teammateProfile.nationality }}
+            </div>
+            <div *ngIf="teammateProfile.institute">
+              <label>Institute:</label> {{ teammateProfile.institute }}
+            </div>
+          </td>
+        </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </div>
